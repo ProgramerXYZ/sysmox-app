@@ -1,0 +1,89 @@
+SYSMOX PRIVACY POLICY
+
+Last Updated: January 2026
+
+
+1. Introduction
+
+Sysmox is a local system monitoring and diagnostic application. It provides information about system performance and resource usage such as CPU activity, memory usage, network statistics, disk usage, and related operating system metrics.
+
+This Privacy Policy explains what data Sysmox accesses, how that data is used, and what Sysmox does not do with user data.
+
+
+2. Data Accessed by Sysmox
+
+Sysmox may read the following types of system-level information from the local machine:
+
+- CPU usage, load, and frequency
+- Memory usage, including total, used, and available memory
+- Network statistics, including bytes sent and received and interface status
+- Disk usage and performance information
+- Operating system and hardware-related metrics
+
+This data is accessed in read-only form and is used solely to display system information to the user.
+
+
+3. What Sysmox Does Not Access
+
+Sysmox does not access or collect:
+
+- Personal files or file contents
+- Passwords, credentials, or authentication data
+- Browser data or browsing history
+- Private documents, media, or user-created content
+- Keystrokes or input logging
+- Camera, microphone, or location data
+
+
+4. Data Transmission
+
+Sysmox does not transmit any data over the internet.
+
+The application does not include:
+- Telemetry
+- Analytics
+- Tracking
+- Background data uploads
+- Cloud synchronization
+
+All data processing occurs locally on the user's system.
+
+
+5. Data Storage
+
+By default, Sysmox does not permanently store system data.
+
+Temporary system information may be held in memory (RAM) for purposes such as live monitoring, calculations, or visual charts. This temporary data is discarded when the application exits.
+
+Sysmox does not write system monitoring data to disk unless explicitly instructed by the user through a feature or configuration option.
+
+
+6. Permissions
+
+Sysmox operates using standard user-level permissions unless the user explicitly runs the application with elevated privileges.
+
+Sysmox does not attempt to bypass operating system security mechanisms.
+
+
+7. User Consent
+
+By accepting this Privacy Policy during installation, you acknowledge that:
+
+- Sysmox reads system performance and resource information
+- All data remains local to your machine
+- No personal or identifiable user data is collected or transmitted
+
+If you do not accept this Privacy Policy, Sysmox will not be installed.
+
+
+8. Changes to This Policy
+
+This Privacy Policy may be updated as Sysmox evolves. Any changes will be reflected in updated versions of the application and its documentation.
+
+
+9. Contact
+
+For questions or concerns regarding this Privacy Policy or data handling practices, please refer to the Sysmox project repository or official distribution source.
+
+
+END OF PRIVACY POLICY

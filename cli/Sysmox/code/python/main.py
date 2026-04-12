@@ -142,6 +142,41 @@ def cpu_freq_percore(cpu_freq_type):
     else:
         raise ValueError("Unknown CPU frequency type")
 
+def cpu_all(interval=None):
+    return {
+        "cores": {
+            "physical": cpuPhy_core_count(),
+            "logical": cpu_Hyperthred_count()
+        },
+
+        "percent": {
+            "overall": cpuPercent_IF_INTERVAL_t(interval) if interval is not None else cpuPercent_DEFAULT(),
+            "per_core": cpuPercent_percore_IF_INTERVAL_time(interval) if interval is not None else cpuPercent_percore_DEFAULT()
+        },
+
+        "times": {
+            "overall": {
+                "user": cputime_default("user"),
+                "system": cputime_default("system"),
+                "idle": cputime_default("idle")
+            },
+            "per_core": {
+                "user": cputime_percpu("user"),
+                "system": cputime_percpu("system"),
+                "idle": cputime_percpu("idle")
+            }
+        },
+
+        "frequency": {
+            "overall": {
+                "current": cpu_freq("current"),
+                "min": cpu_freq("min"),
+                "max": cpu_freq("max")
+            },
+            "per_core": cpu_freq_percore("all")
+        }
+    }
+
 
 
 #  def get_cpu_info(cpu_info):

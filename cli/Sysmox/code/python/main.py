@@ -2,6 +2,7 @@ import psutil as p
 import essntial_functions as e
 import json
 import setup as s
+import time 
 
 # Global vars
 def load_json_safe(path):
@@ -142,7 +143,7 @@ def cpu_freq_percore(cpu_freq_type):
     else:
         raise ValueError("Unknown CPU frequency type")
 
-def cpu_all(interval=None):
+def cpu_all(interval=0.05):
     return {
         "cores": {
             "physical": cpuPhy_core_count(),
@@ -224,8 +225,34 @@ def all_mem():
         "percent": m.percent,
     }
 
-print(all_mem())
+
 
 def reconfig():
     s.create_config()
+
+INTERVAL = 0.02  # 50 ms
+_last_sample_time = time.time()
+
+def all():
+    global _last_sample_time
+
+    now = time.time()
+
+    # if we're early → wait
+    if now < _last_sample_time:
+        time.sleep(_last_sample_time - now)
+        _last_sample_time += INTERVAL
+
+    else:
+        # if we're late → reset schedule (avoid drift explosion)
+        _last_sample_time = now + INTERVAL
+
+    all_data={
+        "collection_time": time.time_ns() // 1_000_000,
+        "cpu": cpu_all(),
+        "memory": all_mem(),
+    }
+    
+    return all_data
+
 

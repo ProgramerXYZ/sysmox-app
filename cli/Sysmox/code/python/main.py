@@ -144,7 +144,7 @@ def cpu_freq_percore(cpu_freq_type):
 
     return result
 
-def cpu_all(interval=0.05):
+def cpu_all(interval=None):
     return {
         "cores": {
             "physical": cpuPhy_core_count(),
@@ -162,11 +162,11 @@ def cpu_all(interval=0.05):
                 "system": cputime_default("system"),
                 "idle": cputime_default("idle")
             },
-            "per_core": {
-                "user": cputime_percpu("user"),
-                "system": cputime_percpu("system"),
-                "idle": cputime_percpu("idle")
-            }
+            # "per_core": {
+            #     "user": cputime_percpu("user"),
+            #     "system": cputime_percpu("system"),
+            #     "idle": cputime_percpu("idle")
+            # }
         },
 
         "frequency": {
@@ -235,18 +235,18 @@ INTERVAL = 0.032  # 50 ms
 _last_sample_time = time.time()
 
 def all():
-    global _last_sample_time
+    # global _last_sample_time
 
-    now = time.time()
+    # now = time.time()
 
-    # if we're early → wait
-    if now < _last_sample_time:
-        time.sleep(_last_sample_time - now)
-        _last_sample_time += INTERVAL
+    # # if we're early → wait
+    # if now < _last_sample_time:
+    #     time.sleep(_last_sample_time - now)
+    #     _last_sample_time += INTERVAL
 
-    else:
-        # if we're late → reset schedule (avoid drift explosion)
-        _last_sample_time = now + INTERVAL
+    # else:
+    #     # if we're late → reset schedule (avoid drift explosion)
+    #     _last_sample_time = now + INTERVAL
 
     all_data={
         "collection_time": time.time_ns() // 1_000_000,

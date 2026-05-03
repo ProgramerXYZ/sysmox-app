@@ -109,39 +109,40 @@ def cpu_freq(freq_type):
     else:
         raise ValueError("Unknown CPU frequency type")
 
+# the cpu frequency data is not very reliable so 
 
-def cpu_freq_percore(cpu_freq_type):
+def safe_freq(val, fallback):
+    return val if val is not None and val > 0 else fallback
+
+def cpu_freq_percore(cpu_freq_type): 
     frequencies_per_core = p.cpu_freq(percpu=True)
     result = []
 
-    if cpu_freq_type == "current":
-        for frequency_object in frequencies_per_core:
-            result.append(frequency_object.current)
-        return result
+    for f in frequencies_per_core:
+        current = f.current
+        min_v = safe_freq(f.min, current)
+        max_v = safe_freq(f.max, current)
 
-    elif cpu_freq_type == "min":
-        for frequency_object in frequencies_per_core:
-            val = frequency_object.min if frequency_object.min is not None else frequency_object.current
-            result.append(val)
-        return result
+        if cpu_freq_type == "current":
+            result.append(current)
 
-    elif cpu_freq_type == "max":
-        for frequency_object in frequencies_per_core:
-            val = frequency_object.max if frequency_object.max is not None else frequency_object.current
-            result.append(val)
-        return result
+        elif cpu_freq_type == "min":
+            result.append(min_v)
 
-    elif cpu_freq_type == "all":
-        for frequency_object in frequencies_per_core:
+        elif cpu_freq_type == "max":
+            result.append(max_v)
+
+        elif cpu_freq_type == "all":
             result.append({
-                "current": frequency_object.current,
-                "min": frequency_object.min if frequency_object.min is not None else frequency_object.current,
-                "max": frequency_object.max if frequency_object.max is not None else frequency_object.current
+                "current": current,
+                "min": min_v,
+                "max": max_v
             })
-        return result
 
-    else:
-        raise ValueError("Unknown CPU frequency type")
+        else:
+            raise ValueError("Unknown CPU frequency type")
+
+    return result
 
 def cpu_all(interval=0.05):
     return {
@@ -230,7 +231,7 @@ def all_mem():
 def reconfig():
     s.create_config()
 
-INTERVAL = 0.02  # 50 ms
+INTERVAL = 0.032  # 50 ms
 _last_sample_time = time.time()
 
 def all():

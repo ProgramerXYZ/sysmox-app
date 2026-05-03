@@ -29,7 +29,7 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "external_binarys":[
+    "externalBin":[
       "bin/sysmox",
       "bin/duration_format",
       "bin/format_freq",

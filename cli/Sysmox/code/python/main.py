@@ -235,23 +235,24 @@ INTERVAL = 0.032  # 50 ms
 _last_sample_time = time.time()
 
 def all():
-    # global _last_sample_time
+    global _last_sample_time
 
-    # now = time.time()
+    now = time.time()
 
-    # # if we're early → wait
-    # if now < _last_sample_time:
-    #     time.sleep(_last_sample_time - now)
-    #     _last_sample_time += INTERVAL
+    # if we're early → wait
+    if now < _last_sample_time:
+        time.sleep(_last_sample_time - now)
+        _last_sample_time += INTERVAL
 
-    # else:
-    #     # if we're late → reset schedule (avoid drift explosion)
-    #     _last_sample_time = now + INTERVAL
+    else:
+        # if we're late → reset schedule (avoid drift explosion)
+        _last_sample_time = now + INTERVAL
 
     all_data={
         "collection_time": time.time_ns() // 1_000_000,
         "cpu": cpu_all(),
         "memory": all_mem(),
+        
     }
     
     return all_data

@@ -1,12 +1,12 @@
 [Setup]
-AppId={{A7B8C9D0-E1F2-4A3B-8C9D-0E1F2A3B4C5D}
+AppId={A7B8C9D0-E1F2-4A3B-8C9D-0E1F2A3B4C5D}
 AppName=Sysmox
-AppVersion=0.2.0
+AppVersion=0.1.0
 
 AppPublisher=Sysmox
-AppPublisherURL=https://github.com/ProgramerXYZ/Sysmox-releses
-AppSupportURL=https://github.com/ProgramerXYZ/Sysmox-releses
-AppUpdatesURL=https://github.com/ProgramerXYZ/Sysmox-releses
+AppPublisherURL=https://github.com/ProgramerXYZ
+AppSupportURL=https://github.com/ProgramerXYZ/sysmox-app/issues
+AppUpdatesURL=https://github.com/ProgramerXYZ/sysmox-app
 
 DefaultDirName={autopf}\Sysmox
 DefaultGroupName=Sysmox
@@ -17,7 +17,7 @@ SolidCompression=yes
 PrivilegesRequired=admin
 
 ; 🎨 ICON / BRANDING
-SetupIconFile=logo.ico
+SetupIconFile=icon.ico
 UninstallDisplayIcon={app}\sysmox.exe
 
 ; 📄 PRIVACY POLICY (FORCES ACCEPTANCE)

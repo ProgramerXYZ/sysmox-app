@@ -1,0 +1,43 @@
+# Compiled binaries
+
+*.obj
+*.out
+*.exe
+# CodeRunner cache
+*.code-runner
+
+# Python cache and environment
+test/
+dummy_test.py
+test_suite.py
+config.json
+__pycache__/
+*.pyc
+.venv/
+env/
+.zip/
+venv/
+tree.txt
+all redbles/
+Output/
+
+# Build folders
+build/
+dist/
+.obsidian/
+
+# VS Code and system stuff
+.vscode/
+.DS_Store
+Thumbs.db
+tempCodeRunnerFile.py
+
+
+# Logs or temp
+*.log
+*.tmp
+*.md
+*.bat
+
+# Ignore
+!readme.md

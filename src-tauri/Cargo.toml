@@ -1,9 +1,10 @@
 [package]
 name = "sysmox"
 version = "0.1.0"
-description = "A Tauri App"
+description = "Sysmox is a mordern cross-paltform system monitoring app built with Tauri, Svlete,Python and C++ it provides fast realtime insights on CPU, Memory, Disk, Network
+thrpugh a lightweight and responsive interface desined for performance  and low resourse usage"
 authors = ["ProgrammerXYZ"]
-edition = "2021"
+edition = "2026"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

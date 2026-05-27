@@ -1,7 +1,7 @@
 {
   "name": "sysmox",
   "version": "0.1.0",
-  "description": "",
+  "description": "Sysmox is a mordern cross-paltform system monitoring app built with Tauri, Svlete,Python and C++ it provides fast realtime insights on CPU, Memory, Disk, Network thrpugh a lightweight and responsive interface desined for performance  and low resourse usage",
   "type": "module",
   "scripts": {
     "dev": "vite dev",

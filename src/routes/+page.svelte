@@ -5,6 +5,7 @@
 	import DashboardGrid from '../lib/components/DashboardGrid.svelte';
 	import SystemInfo from '../lib/components/SystemInfo.svelte';
 	import ProcessTable from '../lib/components/ProcessTable.svelte';
+	import BackendStartButton from "$lib/components/BackendStartButton.svelte";
 
 	let systemStatus = 'System Running';
 </script>
@@ -21,5 +22,6 @@
 		<DashboardGrid />
 		<SystemInfo />
 		<ProcessTable />
+		<BackendStartButton/>
 	</main>
 </div>

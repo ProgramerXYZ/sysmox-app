@@ -45,7 +45,7 @@
 	<nav id="sidebar-nav">
 		{#each navItems as item}
 			<button class="nav-button">
-				{item}
+				{item}		
 			</button>
 		{/each}
 	</nav>

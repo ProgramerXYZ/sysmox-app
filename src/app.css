@@ -159,15 +159,14 @@ body::before {
         padding var(--sidebar-layout-duration) var(--sidebar-layout-ease),
         border-radius var(--sidebar-layout-duration) var(--sidebar-layout-ease),
         box-shadow 0.28s ease;
-    overflow: hidden;
+    overflow: hidden !important;
     box-shadow: var(--sidebar-shadow);
     transform-origin: var(--sidebar-transform-origin);
-    transform-origin: var(--sidebar-transform-origin);
+    transform: translateZ(0);
     touch-action: pan-y;
 
     will-change: transform, width;
 
-    contain: layout paint style;
     contain: layout paint style;
 }
 
@@ -175,21 +174,21 @@ body::before {
     box-shadow: var(--sidebar-shadow-hover);
 }
 
-.sidebar-collapsed {
-    width: 50px !important;
-    min-width: 50px !important;
-    height: 50px !important;
-    padding: 5px !important;
-    border-radius: 17px !important;
+#sidebar.sidebar-collapsed {
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 17px;
 }
 
 #sidebar.sidebar-animating {
-    animation: sidebar-bounce-open 0.78s var(--spring) both;
+    animation: sidebar-bounce-open 0.45s var(--spring) both;
     will-change: width, min-width, height, padding, border-radius, transform;
 }
 
 #sidebar.sidebar-collapsed.sidebar-animating {
-    animation: sidebar-bounce-close 0.72s var(--spring) both;
+    animation: sidebar-bounce-close 0.40s var(--spring) both;
 }
 
 @keyframes sidebar-bounce-open {
@@ -275,6 +274,11 @@ body::before {
     border-color: rgba(174, 193, 216, 0.42);
 }
 
+#sidebar-toggle-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
 #logo-container {
     width: 100%;
     max-height: 54px;
@@ -301,6 +305,8 @@ body::before {
     flex-direction: column;
     width: 100%;
     max-height: 330px;
+    overflow-y: hidden !important;
+    overflow-x: hidden;
     gap: 8px;
     transition:
         opacity 0.18s ease,
@@ -335,6 +341,11 @@ body::before {
     color: var(--text);
     background: var(--sidebar-surface-soft);
     border-color: rgba(174, 193, 216, 0.26);
+}
+
+.nav-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 .nav-button:first-child,
